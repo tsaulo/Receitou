@@ -34,20 +34,42 @@ class ListaFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
 
-        // Simulação de banco de dados de receitas
+        // Lista de receitas com Utensílios e Imagem (usando ícone padrão como exemplo)
         val todasReceitas = listOf(
-            Receita(1, "Bolo de Cenoura", "Média", "Cenoura, Ovos, Farinha, Açúcar", "Bata tudo no liquidificador e asse.", true),
-            Receita(2, "Omelete", "Fácil", "Ovos, Sal, Queijo", "Bata os ovos e frite na frigideira.", true),
-            Receita(3, "Lasanha", "Difícil", "Massa, Molho, Queijo, Carne", "Monte as camadas e leve ao forno por 40 min.", false),
-            Receita(4, "Suco de Laranja", "Fácil", "Laranjas", "Esprema as laranjas e sirva com gelo.", false)
+            Receita(
+                1, "Bolo de Cenoura", "Média", 
+                "Cenoura, Ovos, Farinha, Açúcar, Óleo",
+                "1. Bata a cenoura, ovos e óleo no liquidificador.\n2. Misture a farinha e o açúcar.\n3. Asse por 40 min.",
+                "Liquidificador, Forma de Bolo, Tigela grande",
+                android.R.drawable.ic_menu_gallery, true
+            ),
+            Receita(
+                2, "Omelete de Queijo", "Fácil", 
+                "2 Ovos, Sal, Queijo Muçarela", 
+                "1. Bata os ovos com sal.\n2. Despeje na frigideira.\n3. Adicione o queijo e dobre.",
+                "Frigideira antiaderente, Garfo, Tigela",
+                android.R.drawable.ic_menu_gallery, true
+            ),
+            Receita(
+                3, "Lasanha à Bolonhesa", "Difícil", 
+                "Massa de Lasanha, Molho à Bolonhesa, Queijo, Presunto", 
+                "1. Prepare o molho.\n2. Monte as camadas em um refratário.\n3. Leve ao forno até gratinar.",
+                "Refratário de vidro, Panela, Forno",
+                android.R.drawable.ic_menu_gallery, false
+            ),
+            Receita(
+                4, "Suco de Laranja", "Fácil", 
+                "4 Laranjas, Gelo", 
+                "1. Esprema as laranjas.\n2. Coe se desejar.\n3. Sirva com gelo.",
+                "Espremedor de frutas, Jarra, Faca",
+                android.R.drawable.ic_menu_gallery, false
+            )
         )
 
-        // Filtra as receitas de acordo com o parâmetro recebido
         val listaFiltrada = todasReceitas.filter { it.aprendida == mostrarAprendidas }
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = TarefaAdapter(listaFiltrada) { receita ->
-            // Abre o detalhe da receita
             val fragmentDetalhe = DetalheFragment.newInstance(receita)
             
             parentFragmentManager.beginTransaction()

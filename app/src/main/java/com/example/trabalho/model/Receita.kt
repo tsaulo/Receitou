@@ -8,5 +8,7 @@ data class Receita(
     val dificuldade: String,
     val ingredientes: String,
     val modoPreparo: String,
+    val utensilios: String,
+    val imagemResId: Int,
     val aprendida: Boolean
 ) : Serializable
