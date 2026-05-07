@@ -1,6 +1,7 @@
 package com.example.trabalho.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,32 @@ class DetalheFragment : Fragment() {
             txtModoPreparo.text = it.modoPreparo
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("LIFECYCLE", "DetalheFragment: onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("LIFECYCLE", "DetalheFragment: onResume - Vendo detalhes da receita")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("LIFECYCLE", "DetalheFragment: onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("LIFECYCLE", "DetalheFragment: onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("LIFECYCLE", "DetalheFragment: onDestroy")
+    }
+
 
     companion object {
         private const val ARG_RECEITA = "receita"
