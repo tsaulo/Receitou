@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trabalho.R
-import com.example.trabalho.adapter.InstrucoesAdapter
+import com.example.trabalho.adapter.ReceitaListaAdapter
 import com.example.trabalho.model.Receita
 
 class ListaFragment : Fragment() {
@@ -69,7 +69,7 @@ class ListaFragment : Fragment() {
         val listaFiltrada = todasReceitas.filter { it.aprendida == mostrarAprendidas }
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = InstrucoesAdapter(listaFiltrada) { receita ->
+        recyclerView.adapter = ReceitaListaAdapter(listaFiltrada) { receita ->
             val fragmentDetalhe = DetalheFragment.newInstance(receita)
             
             parentFragmentManager.beginTransaction()

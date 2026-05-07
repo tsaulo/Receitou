@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.trabalho.R
 import com.example.trabalho.model.Receita
 
-class InstrucoesAdapter(
+class ReceitaListaAdapter(
     private val lista: List<Receita>,
     private val onClick: (Receita) -> Unit
-) : RecyclerView.Adapter<InstrucoesAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ReceitaListaAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nome: TextView = view.findViewById(R.id.txtNome)
